@@ -1,0 +1,5 @@
+# Ignore everything
+*
+# Dont ignore these files
+!entrypoint.sh
+!config_export.sh

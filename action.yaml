@@ -6,7 +6,7 @@ inputs:
     required: false
     default: '.github/config.yaml'
   environment:
-    description: 'Export environment variables'
+    description: 'Environment variables to export'
     required: false
 outputs:
   config_path:
@@ -15,4 +15,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.config_path }} ${{ inputs.environment }}
+    - ${{ inputs.config_path }}
+    - ${{ inputs.environment }}
