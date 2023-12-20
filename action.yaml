@@ -1,0 +1,18 @@
+name: 'Config Export'
+description: 'Exports a standard set of configuration values as outputs'
+inputs:
+  config_path:
+    description: 'Config file path'
+    required: false
+    default: '.github/config.yaml'
+  environment:
+    description: 'Export environment variables'
+    required: false
+outputs:
+  config_path:
+    description: 'Config file path'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.config_path }} ${{ inputs.environment }}
