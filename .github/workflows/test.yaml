@@ -1,0 +1,31 @@
+on: [push]
+
+jobs:
+  config_export:
+    runs-on: ubuntu-latest
+    name: Config Export
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Config Export
+        uses: ./
+        id: export
+        with:
+          config_path: .github/config.yaml
+      - name: Get the output config
+        run: echo "Config - ${{ toJson(steps.export.outputs.config) }}"
+
+  config_export_environment:
+    runs-on: ubuntu-latest
+    name: Config Export - Environment
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Config Export
+        uses: ./
+        id: export
+        with:
+          config_path: .github/config.yaml
+          environment: sandbox
+      - name: Get the output config
+        run: echo "Config - ${{ steps.export.outputs.foo }}"

@@ -6,13 +6,14 @@ inputs:
     required: false
     default: '.github/config.yaml'
   environment:
-    description: 'Export environment variables'
+    description: 'Environment variables to export'
     required: false
 outputs:
   config_path:
     description: 'Config file path'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/tx-pts-dai/config-export-action:v0.0.1'
   args:
-    - ${{ inputs.config_path }} ${{ inputs.environment }}
+    - ${{ inputs.config_path }}
+    - ${{ inputs.environment }}

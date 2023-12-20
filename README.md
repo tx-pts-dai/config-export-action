@@ -30,7 +30,7 @@ The environment variables that were exported.
 
 A list of all environments that can be used in a matrix.
 
-```
+```yaml
 strategy:
   matrix:
     include: ${{ fromJson(needs.config-export.outputs.matrix) }}
@@ -38,6 +38,8 @@ strategy:
 
 ## Example usage
 
+```yaml
 uses: tx-pst-dai/config-export@v1
 with:
   environment: 'dev'
+```
