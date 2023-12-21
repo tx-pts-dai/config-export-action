@@ -8,6 +8,10 @@ inputs:
   environment:
     description: 'Environment variables to export'
     required: false
+  debug:
+    description: 'Debug mode'
+    required: false
+    default: 'false'
 outputs:
   config_path:
     description: 'Config file path'
@@ -17,3 +21,4 @@ runs:
   args:
     - ${{ inputs.config_path }}
     - ${{ inputs.environment }}
+    - ${{ inputs.debug }}
