@@ -12,6 +12,10 @@ This action reads a config file and exports the values as environment variables.
 
 The environment variables to be exported.
 
+## `debug`
+
+Enable debug mode.
+
 ## Outputs
 
 ## `config_path`

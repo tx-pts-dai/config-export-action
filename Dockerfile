@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM alpine:3.19
 
-WORKDIR /github/workspace
+WORKDIR /action/workspace
 
 RUN apk update && \
   apk add --no-cache \
@@ -10,8 +10,8 @@ RUN apk update && \
    jq \
    yq
 
-COPY . .
+COPY *.sh /action/workspace/
 
-RUN chmod +x entrypoint.sh
+RUN chmod +x /action/workspace/entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/action/workspace/entrypoint.sh"]

@@ -8,12 +8,17 @@ inputs:
   environment:
     description: 'Environment variables to export'
     required: false
+  debug:
+    description: 'Debug mode'
+    required: false
+    default: 'false'
 outputs:
   config_path:
     description: 'Config file path'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/tx-pts-dai/config-export-action:v0.0.1'
+  image: 'docker://ghcr.io/tx-pts-dai/config-export-action:v0.0.2'
   args:
     - ${{ inputs.config_path }}
     - ${{ inputs.environment }}
+    - ${{ inputs.debug }}
